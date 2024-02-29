@@ -91,4 +91,6 @@ class csv:
 
     def __len__(self):
         return len(self.table)
-
+    
+    def __iter__(self):
+        return iter(self.table)
