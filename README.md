@@ -1,6 +1,8 @@
 # pycsv
 a simple csv library for python
 
+<img src="https://skillicons.dev/icons?i=py&perline=12" />
+
 ## Installation
 Copy the pycsv file in your project directory and import it with:
 ```python
