@@ -1,7 +1,39 @@
+"""
+# ---------- Pycsv ----------
+
+## A simple csv module for python by @AZachia
+
+website & documentation: [github.com/AZachia/pycsv](https://github.com/AZachia/pycsv)
+
+With this module you can:
+- Create a new csv table
+- Load a csv table from a string
+- Load a csv table from a file
+- Save a csv table to a file
+- Sort a csv table
+- Get the number of lines and colones
+- Format the csv table
+- Show the csv table in a pretty way
+- Get the csv table as a string
+- Copy the csv table
+- Get a line of the csv table
+- Get the length of the csv table
+- Iterate through the csv table
+- And more...
+
+Example:
+```python
+from pycsv import csv
+file = csv().load_file("file.csv", sep=";")
+print(list(file))
+```
+
+"""
+
 try:
-    import table
+    import color
 except:
-    table = None
+    color = None
 
 
 class csv:
@@ -66,10 +98,10 @@ class csv:
         return self
 
     def show(self, *args, **kwargs):
-        if table:
-            table.table2(tab=self.table, *args, **kwargs)
+        if color:
+            color.table(tab=self.table, *args, **kwargs)
         else:
-            print("table module not found")
+            print("color module not found")
 
     def text(self) -> str:
         return str(self)
