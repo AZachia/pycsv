@@ -37,27 +37,63 @@ except:
 
 
 class csv:
+    """
+    A simple CSV (Comma-Separated Values) utility class.
+
+    Attributes:
+        table (list[list]): The CSV table data.
+        sep (str): The separator character used in the CSV file.
+    """
+
     def __init__(self, table: list[list] = [[]], sep=";") -> None:
+        """
+        The constructor for the CSV class.
+
+        Parameters:
+            - table (list[list]): The initial table data. Defaults to an empty list of lists.
+            - sep (str): The separator used in the CSV file. Defaults to ";".
+
+        Returns:
+            None
+        """
         self.table = table
         self.sep = sep
 
-    def new(self, lines, columns, fill=" "):
-        self.table = [[fill for column in range(
-            columns)] for line in range(lines)]
+    def new(self, lines:int, columns:int, fill:str=" "):
+        """Create a new table with the specified number of lines and columns.
+
+        Args:
+            lines (int): The number of lines in the table.
+            columns (int): The number of columns in the table.
+            fill (str, optional): The value to fill the table cells with. Defaults to " ".
+
+        Returns:
+            pycsv: The updated pycsv object with the new table.
+        """
+        self.table = [[fill for column in range(columns)] for line in range(lines)]
         return self
 
-    def load_table(self, table):
-        self.table = table
-        return self
+    def load_table(self, table: list[list]):
+            """
+            Load a table into the PyCSV object.
 
-    def load_csv(self, text: str, sep=";"):
+            Args:
+                table (list[list]): The table to load.
+
+            Returns:
+                PyCSV: The PyCSV object itself.
+            """
+            self.table = table
+            return self
+
+    def load_csv(self, text: str, sep:str=";"):
         self.table = []
         for line in text.split("\n"):
             if line != "\n":
                 self.table.append(line.split(self.sep))
         return self
 
-    def load_file(self, path, sep: str = ';'):
+    def load_file(self, path:str, sep: str = ';'):
         self.table = []
         with open(path, "r", encoding="utf-8") as file:
             for line in file.readlines():
@@ -66,7 +102,7 @@ class csv:
         file.close()
         return self
 
-    def save(self, path, encoding="utf-8"):
+    def save(self, path:str, encoding="utf-8"):
         with open(path, "w", encoding=encoding) as file:
             file.write(self.__str__())
         file.close()
