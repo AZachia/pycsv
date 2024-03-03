@@ -101,7 +101,7 @@ class csv:
         if color:
             color.table(tab=self.table, *args, **kwargs)
         else:
-            print("color module not found")
+            print(str(self))
 
     def text(self) -> str:
         return str(self)
