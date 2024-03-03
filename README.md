@@ -55,7 +55,23 @@ from pycsv import csv
 - Get the table size:
    ```python
    from pycsv import csv
-   table = csv().load_csv("Hello ;World!", sep=";")
+   table = csv().load_csv("Hello ;World!"
    print(table.num_lines())
    print(table.num_columns())
    ```
+- Print the table:
+   ```python
+   from pycsv import csv
+   table = csv().load_csv("Hello ;World!\nHow ;are you?")
+   table.show()
+   ```
+   output:
+   ```
+   ╭──────┬────────╮
+   │Hello │World!  │
+   ├──────┼────────┤
+   │How   │are you?│
+   ╰──────┴────────╯
+   ```
+   If you want to display the table by using the show() method, you need to install the [color](https://github.com/azachia/color) library.
+
