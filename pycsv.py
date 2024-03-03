@@ -82,11 +82,11 @@ class csv:
     def num_lines(self) -> int:
         return len(self.table)
 
-    def num_colones(self) -> int:
-        colones = 0
-        for ligne in self.table:
-            colones = max([colones, len(ligne)])
-        return colones
+    def num_columns(self) -> int:
+        columns = 0
+        for line in self.table:
+            columns = max([columns, len(line)])
+        return columns
 
     def format(self):
         for line in self.table:
