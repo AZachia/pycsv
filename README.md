@@ -44,7 +44,7 @@ from pycsv import csv
       file = csv().load_file("file.csv")
       print(str(file))
       ```
-      
+
  - Copy the table:
       ```python
       from pycsv import csv
@@ -52,3 +52,10 @@ from pycsv import csv
       table2 = table.copy()
       ```
 
+- Get the table size:
+   ```python
+   from pycsv import csv
+   table = csv().load_csv("Hello ;World!", sep=";")
+   print(table.num_lines())
+   print(table.num_columns())
+   ```
