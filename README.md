@@ -77,3 +77,9 @@ from pycsv import csv
    ```
    If you want to display the table by using the show() method, you need to install the [color](https://github.com/azachia/color) library.
 
+ - Format rmthe table:
+   ```python
+   from pycsv import csv
+   table = csv().load_csv("Hello ;World!\nHow ;are you?")
+   table.format()
+   ```
