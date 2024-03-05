@@ -80,6 +80,10 @@ from pycsv import csv
  - Format rmthe table:
    ```python
    from pycsv import csv
-   table = csv().load_csv("Hello ;World!\nHow ;are you?")
+   table = csv().load_csv("Hello;1;1,34")
+   print(list(table))
    table.format()
+   print(list(table))
    ```
+
+   
