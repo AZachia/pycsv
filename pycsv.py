@@ -148,6 +148,29 @@ class csv:
         copy.sep = self.sep
         return copy
 
+     def toSQL(self, tablename: str, columns:list | tuple = None, startindex:int = 1, types: str | list = "auto") -> str:
+        sql = ""
+        if not columns:
+            columns = list(self)[0]
+        for row in list(self)[startindex:]:
+            values = []
+            for column, item in enumerate(row):
+                item = str(item)
+                if types == "auto":
+                    if item.isdecimal():
+                        values.append(item)
+                    else:
+                        values.append(f'"{item}"')
+                else:
+                    if types[column] in (int, float):
+                        values.append(item)
+                    else:
+                        values.append(f'"{item}"')
+
+            line = f"""INSERT INTO {tablename} ({', '.join(columns)}) VALUES ({', '.join(values)})"""
+            sql += line + ";\n"
+        return sql
+
     def __str__(self) -> str:
         text = ""
         for index, line in enumerate(self.table):
