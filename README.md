@@ -68,22 +68,29 @@ from pycsv import csv
    table.show()
    ```
    output:
-   ```
-   ╭──────┬────────╮
+   ```┬────────╮
    │Hello │World!  │
    ├──────┼────────┤
    │How   │are you?│
    ╰──────┴────────╯
+   ╭──────
    ```
    If you want to display the table by using the show() method, you need to install the [color](https://github.com/azachia/color) library.
 
  - Format rmthe table:
    ```python
    from pycsv import csv
-   table = csv().load_csv("Hello;1;1,34")
+   table = csv().load_csv("Hello;1;1.34")
    print(list(table))
    table.format()
    print(list(table))
    ```
+      output:
+   ``
+   ["Hello", "1", "1.34"]
+   ["Hello", 1, 1.34]
+   ```
+
+   
 
    
