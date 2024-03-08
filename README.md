@@ -90,7 +90,7 @@ from pycsv import csv
    ["Hello", "1", "1.34"]
    ["Hello", 1, 1.34]
    ```
-
+- Convert into SQL queries
    
 
    
